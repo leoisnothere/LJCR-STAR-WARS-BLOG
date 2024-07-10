@@ -13,17 +13,55 @@ export const Single = () => {
   }, []);
 
   return (
-    <div className="jumbotron">
-      <ul>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Birth year: {character.birth_year}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Eye color: {character.eye_color}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Gender: {character.gender}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Hair Color: {character.hair_color}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Height: {character.height}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Mass: {character.mass}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Name: {character.name}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Skin Color: {character.skin_color}</li>
-      </ul>
+<div className="container">
+<div className="card mb-3 mt-4 card-detail" style={{ maxWidth: "1000px" }}>
+  <div className="row g-0 ">
+    <div class="col-md-4 ">
+      <img
+        src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+        class="img-fluid rounded-end "
+        alt="..."
+      />
     </div>
+    <div className="col-md-8">
+      <div className="card-body ms-5">
+        <h1 className="card-title ms-2 ">
+          {character.name}
+        </h1>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            Birth year: {character.birth_year}
+          </li>
+          <li className="list-group-item">
+            Eye color: {character.eye_color}
+          </li>
+          <li className="list-group-item">
+            Gender: {character.gender}
+          </li>
+          <li className="list-group-item">
+            Hair color: {character.hair_color}
+          </li>
+          <li className="list-group-item">
+            Height: {character.height}
+          </li>
+          <li className="list-group-item">
+            Skin color: {character.skin_color}
+          </li>
+          <li className="list-group-item">
+            Mass: {character.mass}
+          </li>
+        </ul>
+
+        <p className="card-text">
+         
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
   );
 };

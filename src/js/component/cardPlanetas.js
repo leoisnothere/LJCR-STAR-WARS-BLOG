@@ -13,11 +13,19 @@ export const CardPlanetas = (props) => {
 
   return (
     <div className="card mx-1 bg-dark" style={{ width: "18rem" }}>
-      <img src={StarWars} className="card-img-top" alt="..." />
+      <img 
+      src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`} 
+      onError={(e) => {
+        console.log(e);
+        e.target.src =
+          "https://static.wikia.nocookie.net/starwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131019121937";
+      }}
+      className="card-img-top" 
+      alt="..." />
       <div className="card-body">
         <h5 className="card-title text-white">{props.name}</h5>
         <p className="card-text text-white">Population: {props.population}</p>
-        <p className="card-text text-white">Gravity: {props.gravity}</p>
+        <p className="card-text text-white">Terrain: {props.terrain}</p>
         <div style={{ marginBottom: "10px" }}>
           <button
             onClick={() => actions.favoriteCheck(props.name)}

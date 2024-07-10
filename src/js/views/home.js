@@ -16,6 +16,7 @@ export const Home = () => {
             name={character.name}
             gender={character.gender}
             hair_color={character.hair_color}
+            eye_color={character.eye_color}
             id={index + 1}
           />
         ))}
@@ -26,7 +27,7 @@ export const Home = () => {
           <CardPlanetas
             name={planet.name}
             population={planet.population}
-            gravity={planet.gravity}
+            terrain={planet.terrain}
             id={index + 1}
           />
         ))}

@@ -13,17 +13,56 @@ export const SinglePlanet = () => {
   }, []);
 
   return (
-    <div className="jumbotron">
-      <ul>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Climate: {planet.climate}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Diameter: {planet.diameter}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Gravity: {planet.gravity}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Population: {planet.population}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Terrain: {planet.terrain}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Rotation Period: {planet.rotation_period}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Name: {planet.name}</li>
-        <li className="text-white card mx-1 bg-dark" style={{width:"18rem", marginBottom: "10px"}}>Orbital Period: {planet.orbital_period}</li>
-      </ul>
+    <div className="container">
+<div className="card mb-3 mt-4 card-detail" style={{ maxWidth: "1200px" }}>
+        <div className="row g-0 ">
+          <div class="col-md-4">
+            <img
+              src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+              onError={(e) => {
+                console.log(e);
+                e.target.src =
+                  "https://static.wikia.nocookie.net/starwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131019121937";
+              }}
+              class="img-fluid rounded-end align-items-center"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body ms-5">
+              <h1 className="card-title ms-2">
+                {planet.name}
+              </h1>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                Rotation Period: {planet.rotation_period}
+                </li>
+                <li className="list-group-item">
+                Orbital period: {planet.orbital_period}
+                </li>
+                <li className="list-group-item">
+                Diameter: {planet.diameter}
+                </li>
+                <li className="list-group-item">
+                Climate: {planet.climate}
+                </li>
+                <li className="list-group-item">
+                Gravity: {planet.gravity}
+                </li>
+                <li className="list-group-item">
+                Terrain: {planet.terrain}
+                </li>
+                <li className="list-group-item">
+                Surface water: {planet.surface_water}
+                </li>
+                <li className="list-group-item">
+                Population: {planet.population}
+                </li>
+              </ul>
+          </div>
+          </div>
+          </div>
+          </div>
     </div>
   );
 };
