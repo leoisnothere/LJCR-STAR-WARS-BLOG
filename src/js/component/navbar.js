@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export const Navbar = () => {
   const { store } = useContext(Context);
 
@@ -27,6 +28,12 @@ export const Navbar = () => {
                 <a className="dropdown-item" href="#">
                   {favorite}
                 </a>
+                <button
+                  onClick={() => actions.removeFavorite(props.name)}
+                  className="btn btn-secondary"
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+              </button>
               </li>
             ))}
           </ul>

@@ -4,7 +4,7 @@ import StarWars from "../../img/star-wars-logo-black-and-white.png";
 import { Context } from "../store/appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 
 export const CardPersonaje = (props) => {
   const { store, actions } = useContext(Context);
@@ -27,12 +27,6 @@ export const CardPersonaje = (props) => {
             style={{ marginRight: "10px", color: isFavorite ? "red" : "white" }}
           >
             <FontAwesomeIcon icon={faHeart} />
-          </button>
-          <button
-            onClick={() => actions.removeFavorite(props.name)}
-            className="btn btn-secondary"
-          >
-            <FontAwesomeIcon icon={faTrash} />
           </button>
         </div>
         <div>
