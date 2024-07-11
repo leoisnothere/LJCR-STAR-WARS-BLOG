@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Dropdown from 'react-bootstrap/Dropdown';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export const Navbar = () => {
@@ -13,17 +14,15 @@ export const Navbar = () => {
       </Link>
       <div className="ml-auto">
         <div className="dropdown dropleft"> 
-          <button
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Favorites {store.favorites?.length}
-          </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            {store.favorites?.map((favorite, index) => (
+        <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      Favorites {store.favorites?.length}
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+      <ul>
+      {store.favorites?.map((favorite, index) => (
+        
               <li key={index}>
                 <a className="dropdown-item" href="#">
                   {favorite}
@@ -36,7 +35,9 @@ export const Navbar = () => {
               </button>
               </li>
             ))}
-          </ul>
+        </ul>
+      </Dropdown.Menu>
+    </Dropdown>
         </div>
       </div>
     </nav>
