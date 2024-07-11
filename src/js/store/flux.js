@@ -113,9 +113,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ favorites: getStore().favorites.concat(name) });
       },
       removeFavorite: (name) => {
-        setStore({
-          favorites: getStore().favorites.filter((element) => element !== name),
-        })}
+        console.log("Removing favorite:", name);
+        const updatedFavorites = getStore().favorites.filter((favorite) => favorite !== name);
+        console.log("Updated favorites:", updatedFavorites);
+        setStore({ favorites: updatedFavorites });
+      },
     },
   };
 };

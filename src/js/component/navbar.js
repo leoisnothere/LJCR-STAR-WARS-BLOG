@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export const Navbar = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   return (
     <nav className="navbar navbar-light bg-dark mb-3">
@@ -13,7 +13,7 @@ export const Navbar = () => {
         <span className="navbar-brand mb-0 h1 text-white">Star Wars</span>
       </Link>
       <div className="ml-auto">
-        <div> 
+        <div className="dropdown dropleft"> 
         <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic">
       Favorites {store.favorites?.length}
@@ -22,19 +22,16 @@ export const Navbar = () => {
       <Dropdown.Menu>
       <ul>
       {store.favorites?.map((favorite, index) => (
-        
-              <li key={index}>
-                <a className="dropdown-item" href="#">
-                  {favorite}
-                  <button
-                  onClick={() => actions.removeFavorite(props.name)}
-                  className="btn btn-secondary"
-                >
-                  <FontAwesomeIcon icon={faTrash} />
-              </button>
-                </a>
-              </li>
-            ))}
+  <li>
+    <a>{favorite}<br/></a>
+    <button
+  onClick={() => actions.removeFavorite(favorite)}
+  className="btn btn-secondary"
+>
+  <FontAwesomeIcon icon={faTrash} />
+</button>
+  </li>
+))}
         </ul>
       </Dropdown.Menu>
     </Dropdown>
@@ -43,4 +40,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
