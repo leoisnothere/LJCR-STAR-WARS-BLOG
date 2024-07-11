@@ -13,7 +13,7 @@ export const Navbar = () => {
         <span className="navbar-brand mb-0 h1 text-white">Star Wars</span>
       </Link>
       <div className="ml-auto">
-        <div className="dropdown dropleft"> 
+        <div> 
         <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic">
       Favorites {store.favorites?.length}
@@ -26,13 +26,13 @@ export const Navbar = () => {
               <li key={index}>
                 <a className="dropdown-item" href="#">
                   {favorite}
-                </a>
-                <button
+                  <button
                   onClick={() => actions.removeFavorite(props.name)}
                   className="btn btn-secondary"
                 >
                   <FontAwesomeIcon icon={faTrash} />
               </button>
+                </a>
               </li>
             ))}
         </ul>
