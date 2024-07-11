@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
-      getCharacters: () => {
+      getCharacters: async() => {
         fetch("https://swapi.dev/api/people/")
           .then((response) => {
             if (!response.ok) {
@@ -68,7 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log("Looks like there was a problem: \n", error);
           });
       },
-      getPlanets: () => {
+      getPlanets: async() => {
         fetch("https://swapi.dev/api/planets/")
           .then((response) => {
             if (!response.ok) {
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log("Looks like there was a problem: \n", error);
           });
       },
-      favoriteCheck: (name) => {
+      favoriteCheck: async(name) => {
         const favorites = getStore().favorites;
         if (favorites.indexOf(name) !== -1) {
           getActions().removeFavorite(name);
